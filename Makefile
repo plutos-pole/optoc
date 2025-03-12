@@ -1,5 +1,5 @@
 CC := gcc
-CFLAGS := -Wall -Wextra -Wpedantic -Wshadow
+CFLAGS := -Wall -Wextra -Wpedantic -Wshadow -g -O0
 SRC_DIR := src
 OBJ_DIR := obj
 BIN := optoc
@@ -18,5 +18,8 @@ $(OBJ_DIR):
 
 clean:
 	rm -rf $(OBJ_DIR) $(BIN)
+
+debug: CFLAGS += -DDEBUG 
+debug: $(BIN)            
 
 .PHONY: clean
